@@ -1,0 +1,139 @@
+\documentclass[a4paper,12pt,openany]{scrreprt}
+\usepackage[
+	left=2.5cm, 
+	right=4cm, 
+    top=2.5cm, 
+    bottom=2.5cm,
+    footskip=10mm,
+    headsep=5mm]{geometry}
+
+\usepackage[
+	pdftitle={Die Social Media Kommunikation der Universität Bielefeld und die Anwendbarkeit des Modells nach Jan-Hinrik Schmidt},
+    pdfsubject={Bachelorarbeit im Kernfach Linguistik - Universität Bielefeld},
+    pdfauthor={Fabian Wohlgemuth},
+    pdfkeywords={BA, Bachelorarbeit, Bachelor thesis, Social Web, Social Media, Kommunikation, Universität Bielefeld},
+    %pdftex=true,
+    colorlinks=true,
+    citecolor=black,
+    linkcolor=black,
+    menucolor=black,
+    urlcolor=black
+]{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphicx, subfigure}
+\graphicspath{{images/}}
+%\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{color}
+\usepackage[table, dvipsnames]{xcolor}
+
+\usepackage{transparent}
+\usepackage[ngerman]{babel}
+
+\usepackage{lipsum}
+
+\usepackage{datetime2}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{tikz}
+
+\usepackage{float}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{calc}
+
+\usepackage{subfig}
+
+\usepackage{csquotes}
+\MakeOuterQuote{"} 
+
+%%%
+\input{pgfutil-common.tex}
+\usepackage{pgfkeys,pgfmath}  
+\usepackage{siunitx}
+
+\newcommand{\printpercent}[3][2]{%  
+    \pgfmathdivide{#2}{#3}% 
+    \pgfmathmultiply{\pgfmathresult}{100}%
+    \SI[round-mode=places,round-precision=#1]{\pgfmathresult}{\percent}
+}
+%%%
+
+\usepackage{acronym}
+
+\usepackage{fontawesome}
+
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+
+% \setlength{\parindent}{0pt}
+
+%\pagestyle{fancy}
+%\fancyhead{}
+%\fancyfoot{}
+%\fancyfoot[R]{\thepage}
+
+\begin{document}
+
+\pagestyle{empty}
+\include{formalia/deckblatt}
+
+\pagenumbering{Roman}
+
+%\addcontentsline{toc}{section}{Danksagung}\setcounter{page}{2}\include{formalia/danksagung}
+%\addcontentsline{toc}{section}{Abstract}\include{formalia/abstract}
+\addcontentsline{toc}{section}{Inhaltsverzeichnis}
+\newpage
+
+\tableofcontents
+
+\newpage
+\let\LaTeXStandardClearpage\clearpage
+\let\clearpage\relax
+
+\begin{spacing}{1.1}
+\addcontentsline{toc}{section}{Abbildungs-, Tabellenverzeichnis}\listoffigures \listoftables
+%\include{formalia/abkuerzungen}
+\end{spacing}
+
+\addtocontents{toc}{\vspace{\normalbaselineskip}}
+\addtocontents{toc}{\hrule}
+\addtocontents{toc}{\vspace{\normalbaselineskip}}
+\let\clearpage\LaTeXStandardClearpage
+\newpage
+\pagenumbering{arabic}
+
+\newpage
+\include{includes/einleitung}
+\include{includes/theorie}
+\include{includes/empirie}
+\include{includes/fazit}
+
+%% ---------------------------------------%%
+
+%\pagestyle{plain}
+
+\addtocontents{toc}{\vspace{\normalbaselineskip}}
+\addtocontents{toc}{\hrule}
+\addtocontents{toc}{\vspace{\normalbaselineskip}}
+
+\pagenumbering{Roman}
+\bibliographystyle{apalike}
+\bibliography{ba_thesis.bib}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Eigenständigkeitserklärung}
+\begin{doublespace}
+\include{formalia/erklaerung}
+\end{doublespace}
+
+\addcontentsline{toc}{chapter}{Anhang}
+\include{formalia/anhang}
+
+
+\end{document}
