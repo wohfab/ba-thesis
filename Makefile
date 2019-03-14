@@ -3,3 +3,6 @@ make_executable:
 
 export_to_html:
 	./tth < main.tex > index.html
+	
+touch:
+	touch index.html
