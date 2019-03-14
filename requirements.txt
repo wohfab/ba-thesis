@@ -1,1 +1,1 @@
-plastex
+pdflatex
